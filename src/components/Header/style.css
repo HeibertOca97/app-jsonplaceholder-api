@@ -1,0 +1,51 @@
+.header-page{
+  background-color: #070B18;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: auto 1fr;
+}
+.header-page > .text-logo, .header-page > .navbar{
+  grid-columns: 5rem;
+}
+
+.header-page > .text-logo{
+  font-size: calc(var(--size) + .1em);
+}
+
+.header-page > .text-logo a{
+  text-decoration: none;
+  color: var(--cl-link-1);
+  display: block;
+  padding: 10px 15px;
+  margin: 5px;
+}
+
+.header-page > .navbar{
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: right;
+}
+
+.header-page > .navbar > .nav-link{
+  text-decoration: none;
+  display: block;
+  padding: 10px 15px;
+  margin: 5px;
+  transition: all 2.5ms ease-in-out;
+}
+
+.navlink_cl_default{
+  color: var(--cl-link-1);
+}
+
+.navlink_cl_default:hover{
+  color: #FFF;
+}
+
+.navlink_cl_active{
+  color: #FFF;
+}
+
+

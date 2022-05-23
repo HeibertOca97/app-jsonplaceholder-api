@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import {NotFound} from './pages/NotFound';
+import {Home} from './pages/Home';
+import {Profile} from './pages/Profile';
 import './App.css';
+import {Route, Routes} from 'react-router-dom';
+import axios from 'axios';
+
+axios.defaults.baseURL = "https://jsonplaceholder.typicode.com";
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+// API - JSONPLACEHOLDER
+// users -> Albums -> Photos
+// users -> Todos
+// users -> Posts -> Comments
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/profile/*' element={<Profile />} >
+          <Route path=":slug" element={<Profile />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
